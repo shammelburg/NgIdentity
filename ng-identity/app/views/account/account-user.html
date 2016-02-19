@@ -1,0 +1,15 @@
+﻿<div class="row">
+    <div class="col-md-12">
+        <p>
+            Hello {{::vm.user.Email}}.
+            <span class="pull-right">
+                <span ng-if="vm.user.EmailConfirmed"><button ng-disabled="vm.user.EmailConfirmed" class="btn btn-success btn-sm" ng-click="vm.SendConfirmation()" style="width:200px;"><i class="fa fa-check" style="color:white; "></i> Email Confirmed</button></span>
+                <span title="Please confirm your email address." ng-if="!vm.user.EmailConfirmed"><button class="btn btn-danger btn-sm" ng-click="vm.SendConfirmation()" style="width:200px;"><i class="fa fa-warning"></i> {{vm.message}}</button></span>
+                <a href="/myaccount/edit" class="btn btn-identity-view btn-sm" style="width:200px;"><i class="fa fa-edit"></i> Edit Account</a>
+                <a href="/myaccount/change-password" class="btn btn-identity-view btn-sm" style="width:200px;"><i class="fa fa-refresh"></i> Change Password</a>
+            </span>
+        </p>
+        <hr />
+    </div>
+    <div ui-view></div>
+</div>

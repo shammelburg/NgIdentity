@@ -1,0 +1,29 @@
+﻿<div class="row">
+    <div class="col-md-5">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="control-label col-md-3">Email Search</label>
+                <div class="col-md-9">
+                    <input type="search" class="form-control input-sm" placeholder="User search by email..." typeahead-on-select="onSelect($item, $model, $label)" ng-model="vm.selected.Email" uib-typeahead="u.Email for u in vm.users | filter:$viewValue | limitTo:8" />
+                </div>
+            </div>
+        </form>
+        <br />
+        <div class="panel panel-identity">
+            <div class="panel-heading">Users</div>
+            <table class="table table-condensed table-bordered">
+                <!--<thead>
+                    <tr>
+                        <th>Email</th>
+                    </tr>
+                </thead>-->
+                <tbody>
+                    <tr ng-repeat="u in vm.users.slice(((vm.currentPage - 1) * vm.itemsPerPage), ((vm.currentPage) * vm.itemsPerPage)) | limitTo: 10">
+                        <td><a href="administrator/user/edit/{{::u.Id}}">{{::u.Email}}</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <uib-pagination total-items="totalItems" ng-model="vm.currentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages"></uib-pagination>
+    </div>
+</div>

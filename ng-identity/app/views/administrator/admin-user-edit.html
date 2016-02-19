@@ -1,0 +1,138 @@
+﻿<div class="row">
+    <div class="col-md-5">
+        <div class="panel panel-identity">
+            <div class="panel-heading">{{vm.user.UserName}}</div>
+            <div class="panel-body">
+                <form role="form" class="form-horizontal" name="userForm">
+                    <!--<div class="form-group">
+                        <label class="col-md-4 control-label">UserName</label>
+                        <div class="col-md-8">
+                            <label class="control-label">{{::user.UserName}}</label>
+                        </div>
+                    </div>-->
+                    <div class="form-group">
+                        <label for="email" class="col-md-4 control-label">Email</label>
+                        <div class="col-md-8">
+                            <input id="email" name="email" type="email" class="form-control input-sm" placeholder="Email eg. user@powerbox.com" ng-model="vm.user.Email" ng-required="true" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-8 col-md-offset-4">
+                            <div class="checkbox">
+                                <label for="ec">
+                                    <input id="ec" type="checkbox" ng-model="vm.user.EmailConfirmed" /> Email Confirmed
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone" class="col-md-4 control-label">Phone Number</label>
+                        <div class="col-md-8">
+                            <input id="phone" type="tel" class="form-control input-sm" placeholder="01935 123456" ng-model="vm.user.PhoneNumber" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-8 col-md-offset-4">
+                            <div class="checkbox">
+                                <label for="ec">
+                                    <input id="ec" type="checkbox" ng-model="vm.user.PhoneNumberConfirmed" /> Phone Number Confirmed
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-8 col-md-offset-4">
+                            <div class="checkbox">
+                                <label for="ec">
+                                    <input id="ec" type="checkbox" ng-model="vm.user.TwoFactorEnabled" /> Two Factor Enabled
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone" class="col-md-4 control-label">Role Count</label>
+                        <div class="col-md-8">
+                            <span>{{vm.user.Roles.length}}</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-8 col-md-offset-4 text-right">
+                            <button type="submit" class="btn btn-identity btn-sm" ng-click="vm.UpdateUser(vm.user)">Update</button>
+                        </div>
+                    </div>
+                    <div ng-hide="!vm.userMessage" ng-class="vm.isUserSuccess ? 'alert alert-success' : 'alert alert-danger'">
+                        {{vm.userMessage}}
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="panel panel-identity">
+            <div class="panel-heading">Reset Password</div>
+            <div class="panel-body">
+                <form role="form" class="form-horizontal" name="resetForm" novalidate>
+                    <div class=" form-group" show-error>
+                        <label class="control-label col-md-5">Password</label>
+                        <div class="col-md-7">
+                            <input type="password" name="password" class="form-control input-sm" placeholder="New Password"
+                                   ng-model="vm.reset.password" ng-required="true" />
+                            <span class="help-block" ng-if="resetForm.password.$error.required">A password is required.</span>
+                        </div>
+                    </div>
+                    <div class=" form-group" show-error>
+                        <label class="control-label col-md-5">Confirm Password</label>
+                        <div class="col-md-7">
+                            <input type="password" name="confirmPassword" class="form-control input-sm" placeholder="Confirm New Password"
+                                   ng-model="vm.reset.confirmPassword" ng-required="true" ng-pattern="reset.password" />
+                            <span class="help-block" ng-if="resetForm.confirmPassword.$error.required">A password is required.</span>
+                            <span class="help-block" ng-if="resetForm.confirmPassword.$error.pattern">Passwords do not match.</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-7 col-md-offset-5 text-right">
+                            <button type="submit" class="btn btn-identity btn-sm" ng-click="vm.ResetPassword(vm.reset)">Reset Password</button>
+                        </div>
+                    </div>
+                    <div ng-hide="!vm.resetMessage" ng-class="vm.isResetSuccess ? 'alert alert-success' : 'alert alert-danger'">
+                        {{vm.resetMessage}}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-5 col-md-offset-1">
+        <div class="panel panel-identity">
+            <div class="panel-heading">Roles</div>
+            <div class="panel-body">
+                <form role="form" class="form-horizontal" name="roleForm" novalidate>
+                    <div class="form-group">
+                        <label for="role" class="col-md-5 control-label">Select a role to add</label>
+                        <div class="col-md-7">
+                            <select id="role" name="role" class="form-control input-sm" ng-model="vm.role.RoleName" ng-required="true">
+                                <option value="">Select a role</option>
+                                <option ng-repeat="r in vm.roles">{{::r.Name}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <div class="col-md-5" ng-repeat="ur in vm.uroles">
+                                <div class="alert alert-identity cursor" role="alert" ng-click="vm.RemoveRole(ur)">
+                                    <i class="fa fa-close"></i>
+                                    {{::ur}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-7 col-md-offset-5 text-right">
+                            <button type="submit" class="btn btn-identity btn-sm" ng-click="vm.AddRole(vm.role.RoleName)">Add</button>
+                        </div>
+                    </div>
+                    <div ng-hide="!vm.roleMessage" ng-class="vm.isRoleSuccess ? 'alert alert-success' : 'alert alert-danger'">
+                        {{vm.roleMessage}}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

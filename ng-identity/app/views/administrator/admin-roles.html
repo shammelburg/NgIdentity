@@ -1,0 +1,31 @@
+﻿<div class="row">
+    <div class="col-md-5">
+        <div class="panel panel-identity">
+            <div class="panel-heading">Create System Role</div>
+            <div class="panel-body">
+                <form role="form" class="form-horizontal" name="userForm" novalidate>
+                    <div class="form-group" show-error>
+                        <label for="role" class="col-md-3 control-label">Role Name</label>
+                        <div class="col-sm-9">
+                            <input id="role" name="role" type="text" class="form-control input-sm" placeholder="eg. Admin, Customer..." ng-model="vm.role.name" ng-required="true" />
+                            <span class="help-block" ng-if="userForm.role.$error.required">Role Name is required</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-9 col-md-offset-3 text-right">
+                            <button type="submit" class="btn btn-identity btn-sm" ng-click="vm.AddRole(vm.role)">Add Role</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-5 col-md-offset-1">
+        <div class="col-md-5" ng-repeat="r in vm.roles">
+            <div class="alert alert-identity cursor" role="alert" ng-click="vm.RemoveRole(r)">
+                <i class="fa fa-close"></i>
+                {{::r.Name}}
+            </div>
+        </div>
+    </div>
+</div>

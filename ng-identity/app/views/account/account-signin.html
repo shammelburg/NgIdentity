@@ -1,0 +1,50 @@
+﻿<div class="row">
+    <div class="col-md-12">
+        <p>
+            Sign in to NG-IDENITY. View and manage your account details.
+        </p>
+    </div>
+    <div class="col-md-5">
+        <fieldset>
+            <legend>SIGN IN</legend>
+            <form role="form" class="form-horizontal" name="loginForm" novalidate>
+                <div class="form-group" show-error>
+                    <label for="email" class="col-md-3 control-label">Email</label>
+                    <div class="col-sm-9">
+                        <input id="email" name="email" type="email" class="form-control input-sm" placeholder="Email eg. user@powerbox.com" ng-model="vm.loginData.userName" ng-required="true" autocomplete="on" />
+                        <span class="help-block" ng-if="loginForm.email.$error.required">Email address is required</span>
+                    </div>
+                </div>
+                <div class="form-group" show-error>
+                    <label for="password" class="col-md-3 control-label">Password</label>
+                    <div class="col-sm-9">
+                        <input id="password" name="password" type="password" class="form-control input-sm" placeholder="Password" ng-model="vm.loginData.password" ng-required="true" />
+                        <span class="help-block" ng-if="loginForm.password.$error.required">Password is required</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-9 col-md-offset-3 text-right">
+                        <button type="submit" class="btn btn-identity btn-sm" ng-click="vm.SignIn()">Login</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12 text-right">
+                        <a href="/forgot-password">Forgot your password?</a>
+                    </div>
+                </div>
+                <div ng-show="vm.message" class="alert alert-danger">
+                    {{vm.message}}
+                </div>
+            </form>
+        </fieldset>
+    </div>
+    <div class="col-md-4 col-md-offset-1">
+        <fieldset>
+            <legend>NOT A MEMBER?</legend>
+            <a href="/create-account">Create</a> yourself a new account.
+        </fieldset>
+    </div>
+</div>
+
+
+

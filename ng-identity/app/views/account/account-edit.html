@@ -1,0 +1,33 @@
+﻿<div class="col-md-7">
+    <div class="panel panel-identity">
+        <div class="panel-heading">Edit Account</div>
+        <div class="panel-body">
+            <form class="form-horizontal" name="infoForm" role="form" novalidate>
+                <div class="form-group">
+                    <label class="control-label col-md-3">UserName</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control input-sm" ng-required="true" ng-model="vm.model.UserName" readonly="readonly" />
+                    </div>
+                </div>
+                <div class="form-group" show-error>
+                    <label class="control-label col-md-3">Email</label>
+                    <div class="col-md-8">
+                        <input type="email" placeholder="Email" class="form-control input-sm" ng-required="true" ng-model="vm.model.Email" />
+                    </div>
+                </div>
+                <div class="form-group" show-error>
+                    <div class="col-md-8 col-md-offset-3 text-right">
+                        <button class="btn btn-identity btn-sm" ng-click="vm.UpdateAccount(vm.model)">Update</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-8 col-md-offset-3">
+                        <div ng-hide="!vm.message" ng-class="vm.isSuccess ? 'alert alert-success' : 'alert alert-danger'">
+                            {{vm.message}}
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

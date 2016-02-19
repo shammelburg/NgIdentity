@@ -1,0 +1,52 @@
+﻿<div class="col-md-6">
+    <div class="panel panel-identity">
+        <div class="panel-heading">Change Password</div>
+        <div class="panel-body">
+            <form role="form" class="form-horizontal" name="changeForm" novalidate>
+                <div class=" form-group" show-error>
+                    <label for="oldPassword" class="control-label col-md-5">Old Password</label>
+                    <div class="col-md-7">
+                        <input type="password" id="oldPassword" name="oldPassword" class="form-control input-sm" placeholder="Old Password"
+                               ng-model="vm.model.oldPassword" ng-required="true" />
+                        <span class="help-block" ng-if="changeForm.oldPassword.$error.required">An Old Password is required.</span>
+                    </div>
+                </div>
+                <div class=" form-group" show-error>
+                    <label for="password" class="control-label col-md-5">New Password</label>
+                    <div class="col-md-7">
+                        <input type="password" id="password" name="password" class="form-control input-sm" placeholder="New Password"
+                               ng-model="vm.model.password" ng-required="true" ng-pattern="vm.model.confirmPassword" />
+                        <span class="help-block" ng-if="changeForm.password.$error.required">A new Password is required.</span>
+                        <span class="help-block" ng-if="changeForm.password.$error.pattern">Passwords do not match.</span>
+                    </div>
+                </div>
+                <div class=" form-group" show-error>
+                    <label for="confirmPassword" class="control-label col-md-5">Confirm Password</label>
+                    <div class="col-md-7">
+                        <input type="password" id="confirmPassword" name="confirmPassword" class="form-control input-sm" placeholder="Confirm Password"
+                               ng-model="vm.model.confirmPassword" ng-required="true" ng-pattern="vm.model.password" />
+                        <span class="help-block" ng-if="changeForm.confirmPassword.$error.required">Confirm New Password is required.</span>
+                        <span class="help-block" ng-if="changeForm.confirmPassword.$error.pattern">Passwords do not match.</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-9 col-md-offset-3 text-right">
+                        <button type="submit" class="btn btn-identity btn-sm" ng-click="vm.ChangePassword(vm.model)">Change Password</button>
+                    </div>
+                </div>
+                <div ng-hide="!vm.message" ng-class="vm.isSuccess ? 'alert alert-success' : 'alert alert-danger'">
+                    {{vm.message}}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="col-md-4 col-md-offset-1">
+    <ul>
+        <li>Minimum of 6 characters</li>
+        <li>Require 1 special character</li>
+        <li>Require a number</li>
+        <li>Require lowercase</li>
+        <li>Require uppercase</li>
+    </ul>
+</div>

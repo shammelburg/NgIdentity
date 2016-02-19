@@ -1,0 +1,13 @@
+﻿<div class="row">
+    <div class="col-md-5">
+        <fieldset>
+            <legend><span ng-if="vm.confirmed">EMAIL CONFIRMED</span><span ng-if="!vm.confirmed">COULD NOT CONFIRMED EMAIL</span></legend>
+            <div ng-hide="!vm.message" ng-class="vm.confirmed ? 'alert alert-success' : 'alert alert-danger'">
+                {{vm.message}}
+            </div>
+        </fieldset>
+    </div>
+</div>
+
+
+

@@ -1,0 +1,58 @@
+﻿<div class="row">
+    <div class="col-md-5">
+        <fieldset>
+            <legend>CREATE AN ACCOUNT</legend>
+            <form class="form-horizontal" role="form" name="createForm" novalidate>
+                <div class="form-group" show-error>
+                    <label for="email" class="control-label col-md-4">Email</label>
+                    <div class="col-md-8">
+                        <input id="email" name="email" type="email" class="form-control input-sm" placeholder="Email"
+                               ng-model="vm.model.email" ng-required="true">
+                        <span class="help-block" ng-if="createForm.email.$error.required">Email address is required</span>
+                    </div>
+                </div>
+                <div class="form-group" show-error>
+                    <label for="password" class="control-label col-md-4">Password</label>
+                    <div class="col-md-8">
+                        <input id="password" name="password" type="password" class="form-control input-sm" placeholder="Password"
+                               ng-model="vm.model.password" ng-required="true" ng-pattern="vm.model.confirmPassword">
+                        <span class="help-block" ng-if="createForm.password.$error.required">Password is required</span>
+                        <span class="help-block" ng-if="createForm.password.$error.pattern">Passwords do not match.</span>
+                    </div>
+                </div>
+                <div class="form-group" show-error>
+                    <label for="confirmPassword" class="control-label col-md-4">Confirm Password</label>
+                    <div class="col-md-8">
+                        <input id="confirmPassword" name="confirmPassword" type="password" class="form-control input-sm" placeholder="Confirm Password"
+                               ng-model="vm.model.confirmPassword" ng-required="true" ng-pattern="vm.model.password">
+                        <span class="help-block" ng-if="createForm.confirmPassword.$error.required">Confirm Password is required</span>
+                        <span class="help-block" ng-if="createForm.confirmPassword.$error.pattern">Passwords do not match.</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-8 col-md-offset-4 text-right">
+                        <button class="btn btn-identity btn-sm" type="submit" ng-click="vm.CreateAccount(vm.model)">Create</button>
+                    </div>
+                </div>
+                <div ng-hide="!vm.message" ng-class="vm.isSuccess ? 'alert alert-success' : 'alert alert-danger'">
+                    {{vm.message}}
+                </div>
+            </form>
+        </fieldset>
+    </div>
+    <div class="col-md-5 col-md-offset-1">
+        <fieldset>
+            <legend>READ ME</legend>
+            <p>
+                Only create system accounts here. All user accounts created here are given the "Customer" role by default.
+                To change a users role go to System Accounts.
+            </p>
+            <p>
+                To create a customer account go <a href="/administrator/customer/new">here</a>.
+            </p>
+        </fieldset>
+    </div>
+</div>
+
+
+

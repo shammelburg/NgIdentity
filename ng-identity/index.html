@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html data-ng-app="app">
+<head>
+    <meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>NG-IDENTITY | shammelburg</title>
+    <link href="/gulp/style.min.css" rel="stylesheet" />
+    <base href="/" />
+</head>
+<body ng-cloak>
+    <div class="navbar navbar-shop navbar-fixed-top" role="navigation" ng-controller="IndexController as vm">
+        <div class="top-nav hidden-xs">
+            <div class="container">
+                <div class="pull-left">
+                    <a href="https://gist.github.com/shammelburg"><i class="fa fa-github"></i> shammelburg</a>
+                </div>
+                <div id="account" class="pull-right">
+                    <span ng-if="vm.authentication.isAdmin"><a href="/administrator">Administrator</a></span>
+                    <span ng-hide="!vm.authentication.isAuth"><a href="/myaccount">MY ACCOUNT ({{vm.authentication.userName}})</a></span>
+                    <span ng-hide="vm.authentication.isAuth"><a href="/signin">SIGN IN</a></span>
+                    <span ng-hide="vm.authentication.isAuth"><a href="/create-account">CREATE ACCOUNT</a></span>
+                    <span ng-hide="!vm.authentication.isAuth"><a href="" ng-click="vm.LogOut()">LOG OUT</a></span>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">NG-IDENTITY</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar visible-xs">
+                    <!-- Add Links Here -->
+                    <!--<li><a href="/products">PRODUCTS</a></li>-->
+                    <li ng-hide="vm.authentication.isAuth"><a href="/signin">SIGN IN</a></li>
+                    <li ng-hide="vm.authentication.isAuth"><a href="/create-account">CREATE ACCOUNT</a></li>
+                    <li ng-hide="!vm.authentication.isAuth"><a href="/administrator">Administrator</a></li>
+                    <li ng-hide="!vm.authentication.isAuth"><a href="/myaccount">{{vm.authentication.userName}}</a></li>
+                    <li ng-hide="!vm.authentication.isAuth"><a href="" ng-click="vm.LogOut()">LOG OUT</a></li>
+                </ul>
+                <!--<ul class="nav navbar-nav navbar">
+                    <!-- Add Links Here -->
+                    <!--<li><a href="/products">PRODUCTS</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <!-- Add Links Here -->
+                    <!--<li><a href="#"><i class="fa fa-search"></i></a></li>
+                    <li><a href="/orders"><i class="fa fa-shopping-cart"></i> MY BASKET</a></li>
+                </ul>-->
+            </div>
+        </div>
+    </div>
+    <div id="content-wrapper">
+        <div class="container">
+            <div ui-view></div>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    Developed by Sander Hammelburg
+                    <br />
+                    <a href="https://github.com/shammelburg"><i class="fa fa-github"></i> Github</a> | <a href="https://www.linkedin.com/in/sanderhammelburg"><i class="fa fa-linkedin"></i> LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Load app main script -->
+    <script src="/gulp/scripts.min.js"></script>
+    <script src="/gulp/app.min.js"></script>
+</body>
+</html>
