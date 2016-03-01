@@ -11,3 +11,4 @@ var app;
         angular.module("app").controller("HomeController", Home);
     })(controllers = app.controllers || (app.controllers = {}));
 })(app || (app = {}));
+//# sourceMappingURL=HomeController.js.map

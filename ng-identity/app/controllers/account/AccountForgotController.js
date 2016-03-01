@@ -32,3 +32,4 @@ var app;
         angular.module('app').controller('AccountForgotController', AccountForgot);
     })(controllers = app.controllers || (app.controllers = {}));
 })(app || (app = {}));
+//# sourceMappingURL=AccountForgotController.js.map

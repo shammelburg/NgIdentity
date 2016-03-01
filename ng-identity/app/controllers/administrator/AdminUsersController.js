@@ -23,3 +23,4 @@ var app;
         angular.module('app').controller('AdminUsersController', AdminUsers);
     })(controllers = app.controllers || (app.controllers = {}));
 })(app || (app = {}));
+//# sourceMappingURL=AdminUsersController.js.map

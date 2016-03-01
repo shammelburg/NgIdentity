@@ -6,8 +6,8 @@
                 .state('home', { url: '/', controller: 'HomeController', templateUrl: '/app/views/home.html' })
                 /*Account Routes*/
                 .state('account', { url: '/myaccount', controller: 'AccountController as vm', templateUrl: '/app/views/account/account-user.html' })
-                .state('account.edit', { url: '/edit', controller: 'AccountEditController as vm', templateUrl: '/app/views/account/account-edit.html' })
-                .state('account.change', { url: '/change-password', controller: 'AccountChangeController as vm', templateUrl: '/app/views/account/account-change.html' })
+                .state('account-edit', { url: '/myaccount/edit', controller: 'AccountEditController as vm', templateUrl: '/app/views/account/account-edit.html' })
+                .state('account-change', { url: '/myaccount/change-password', controller: 'AccountChangeController as vm', templateUrl: '/app/views/account/account-change.html' })
                 .state('account-signin', { url: '/signin', controller: 'AccountSignInController as vm', templateUrl: '/app/views/account/account-signin.html' })
                 .state('account-create', { url: '/create-account', controller: 'AccountCreateController as vm', templateUrl: '/app/views/account/account-create.html' })
                 .state('account-forgot', { url: '/forgot-password', controller: 'AccountForgotController as vm', templateUrl: '/app/views/account/account-forgot.html' })

@@ -36,3 +36,4 @@ var app;
         angular.module('app').controller('AdminRoleController', Role);
     })(controllers = app.controllers || (app.controllers = {}));
 })(app || (app = {}));
+//# sourceMappingURL=AdminRoleController.js.map

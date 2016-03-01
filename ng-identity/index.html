@@ -4,7 +4,10 @@
     <meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <title>NG-IDENTITY | shammelburg</title>
-    <link href="/gulp/style.min.css" rel="stylesheet" />
+    <link href="/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="/Content/angular-block-ui.min.css" rel="stylesheet" />
+    <link href="/Content/site.css" rel="stylesheet" />
     <base href="/" />
 </head>
 <body ng-cloak>
@@ -15,8 +18,8 @@
                     <a href="https://gist.github.com/shammelburg"><i class="fa fa-github"></i> shammelburg</a>
                 </div>
                 <div id="account" class="pull-right">
-                    <span ng-if="vm.authentication.isAdmin"><a href="/administrator">Administrator</a></span>
-                    <span ng-hide="!vm.authentication.isAuth"><a href="/myaccount">MY ACCOUNT ({{vm.authentication.userName}})</a></span>
+                    <!--<span ng-if="vm.authentication.isAdmin"><a href="/administrator">Administrator</a></span>-->
+                    <!--<span ng-hide="!vm.authentication.isAuth"><a href="/myaccount">MY ACCOUNT ({{vm.authentication.userName}})</a></span>-->
                     <span ng-hide="vm.authentication.isAuth"><a href="/signin">SIGN IN</a></span>
                     <span ng-hide="vm.authentication.isAuth"><a href="/create-account">CREATE ACCOUNT</a></span>
                     <span ng-hide="!vm.authentication.isAuth"><a href="" ng-click="vm.LogOut()">LOG OUT</a></span>
@@ -40,19 +43,12 @@
                     <!--<li><a href="/products">PRODUCTS</a></li>-->
                     <li ng-hide="vm.authentication.isAuth"><a href="/signin">SIGN IN</a></li>
                     <li ng-hide="vm.authentication.isAuth"><a href="/create-account">CREATE ACCOUNT</a></li>
-                    <li ng-hide="!vm.authentication.isAuth"><a href="/administrator">Administrator</a></li>
-                    <li ng-hide="!vm.authentication.isAuth"><a href="/myaccount">{{vm.authentication.userName}}</a></li>
                     <li ng-hide="!vm.authentication.isAuth"><a href="" ng-click="vm.LogOut()">LOG OUT</a></li>
                 </ul>
-                <!--<ul class="nav navbar-nav navbar">
-                    <!-- Add Links Here -->
-                    <!--<li><a href="/products">PRODUCTS</a></li>
-                </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <!-- Add Links Here -->
-                    <!--<li><a href="#"><i class="fa fa-search"></i></a></li>
-                    <li><a href="/orders"><i class="fa fa-shopping-cart"></i> MY BASKET</a></li>
-                </ul>-->
+                    <li ng-hide="!vm.authentication.isAuth"><a href="/administrator">Administrator</a></li>
+                    <li ng-hide="!vm.authentication.isAuth"><a href="/myaccount/">My Account ({{vm.authentication.userName}})</a></li>
+                </ul>
             </div>
         </div>
     </div>

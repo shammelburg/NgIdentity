@@ -156,3 +156,14 @@ body {
             background-color: #2c3e50;
             border: 1px solid #34495e;
         }
+
+.account-panel {
+    min-height:200px;
+    border:1px solid #aaa;
+    border-radius:20px;
+    padding:15px 20px;
+}
+.account-panel ul li {
+    padding-top:5px;
+    padding-bottom:5px;
+}

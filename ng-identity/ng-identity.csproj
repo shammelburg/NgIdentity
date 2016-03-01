@@ -60,6 +60,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\views\account\account-dash.html" />
     <Content Include="app\views\administrator\admin-create.html" />
     <Content Include="Content\angular-block-ui.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />

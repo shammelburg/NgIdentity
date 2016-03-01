@@ -1,15 +1,17 @@
 ﻿<div class="row">
-    <div class="col-md-12">
-        <p>
-            Hello {{::vm.user.Email}}.
-            <span class="pull-right">
-                <span ng-if="vm.user.EmailConfirmed"><button ng-disabled="vm.user.EmailConfirmed" class="btn btn-success btn-sm" ng-click="vm.SendConfirmation()" style="width:200px;"><i class="fa fa-check" style="color:white; "></i> Email Confirmed</button></span>
-                <span title="Please confirm your email address." ng-if="!vm.user.EmailConfirmed"><button class="btn btn-danger btn-sm" ng-click="vm.SendConfirmation()" style="width:200px;"><i class="fa fa-warning"></i> {{vm.message}}</button></span>
-                <a href="/myaccount/edit" class="btn btn-identity-view btn-sm" style="width:200px;"><i class="fa fa-edit"></i> Edit Account</a>
-                <a href="/myaccount/change-password" class="btn btn-identity-view btn-sm" style="width:200px;"><i class="fa fa-refresh"></i> Change Password</a>
-            </span>
-        </p>
-        <hr />
+    <div class="col-md-4">
+        <div class="account-panel">
+            <fieldset>
+                <legend>Account</legend>
+                <ul class="list-unstyled">
+                    <li><a href="/myaccount/edit">Edit Account Information</a></li>
+                    <li><a href="/myaccount/change-password">Change Account Password</a></li>
+                    <li>
+                        <span ng-if="vm.user.EmailConfirmed"><i class="fa fa-check"></i> Email Confirmed</span>
+                        <span title="Please confirm your email address." ng-if="!vm.user.EmailConfirmed"><button class="btn btn-default btn-xs" ng-click="vm.SendConfirmation()">{{vm.message}}</button></span>
+                    </li>
+                </ul>
+            </fieldset>
+        </div>
     </div>
-    <div ui-view></div>
 </div>

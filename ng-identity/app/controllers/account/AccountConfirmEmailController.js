@@ -39,3 +39,4 @@ var app;
         angular.module('app').controller('AccountConfirmEmailController', AccountConfirmEmail);
     })(controllers = app.controllers || (app.controllers = {}));
 })(app || (app = {}));
+//# sourceMappingURL=AccountConfirmEmailController.js.map

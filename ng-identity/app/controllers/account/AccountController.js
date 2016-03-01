@@ -9,15 +9,15 @@ var app;
                 this.authService = authService;
                 this.$timeout = $timeout;
                 this.authService.Check(['Admin']);
-                this.message = 'Email not confirmed';
+                this.message = 'Confirm Email';
                 this.accountService.UserInfo().then(function (response) { _this.user = response.data; }).catch(Common.Error.prototype.LogError);
             }
             Account.prototype.SendConfirmation = function () {
                 var _this = this;
                 this.accountService.SendConfirmationEmail().then(function () {
-                    _this.message = 'Email sent';
+                    _this.message = 'Confirmation sent';
                     _this.$timeout(function () {
-                        this.message = 'Email not confirmed';
+                        this.message = 'Confirm Email';
                     }, 5000);
                 }).catch(Common.Error.prototype.LogError);
             };
@@ -28,3 +28,4 @@ var app;
         angular.module('app').controller('AccountController', Account);
     })(controllers = app.controllers || (app.controllers = {}));
 })(app || (app = {}));
+//# sourceMappingURL=AccountController.js.map

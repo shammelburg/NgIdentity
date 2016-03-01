@@ -44,3 +44,4 @@ var app;
         angular.module('app').service('accountService', Account);
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
+//# sourceMappingURL=accountService.js.map

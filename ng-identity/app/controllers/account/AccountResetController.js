@@ -37,3 +37,4 @@ var app;
         angular.module('app').controller('AccountResetController', Reset);
     })(controllers = app.controllers || (app.controllers = {}));
 })(app || (app = {}));
+//# sourceMappingURL=AccountResetController.js.map

@@ -28,3 +28,4 @@ var app;
         angular.module('app').service('roleService', Role);
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
+//# sourceMappingURL=roleService.js.map
