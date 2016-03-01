@@ -21,5 +21,6 @@ Admin features,
 * List of roles
 * Adding roles
 * Removing roles
+* Create User
 
 More to be added soon, hopefully
