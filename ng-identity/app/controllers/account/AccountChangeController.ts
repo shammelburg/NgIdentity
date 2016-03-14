@@ -13,6 +13,7 @@
             if (this.$scope.changeForm.$invalid)
                 return;
 
+            console.log(model);
             this.accountService.ChangePassword(model).then((response: any) => {
                 this.model = {};
                 this.message = response.data;

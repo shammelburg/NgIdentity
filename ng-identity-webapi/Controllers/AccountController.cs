@@ -94,7 +94,7 @@ namespace ng_identity_webapi.Controllers
             }
 
             IdentityResult result = await UserManager.ChangePasswordAsync(User.Identity.GetUserId(), model.OldPassword,
-                model.Password);
+                model.NewPassword);
 
             if (!result.Succeeded)
             {

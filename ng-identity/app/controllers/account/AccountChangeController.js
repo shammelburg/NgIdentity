@@ -15,6 +15,7 @@ var app;
                 this.$scope.$broadcast('show-errors-event');
                 if (this.$scope.changeForm.$invalid)
                     return;
+                console.log(model);
                 this.accountService.ChangePassword(model).then(function (response) {
                     _this.model = {};
                     _this.message = response.data;

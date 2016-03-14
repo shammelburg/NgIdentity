@@ -15,7 +15,7 @@
                     <label for="password" class="control-label col-md-5">New Password</label>
                     <div class="col-md-7">
                         <input type="password" id="password" name="password" class="form-control input-sm" placeholder="New Password"
-                               ng-model="vm.model.password" ng-required="true" ng-pattern="vm.model.confirmPassword" />
+                               ng-model="vm.model.newPassword" ng-required="true" ng-pattern="vm.model.confirmPassword" />
                         <span class="help-block" ng-if="changeForm.password.$error.required">A new Password is required.</span>
                         <span class="help-block" ng-if="changeForm.password.$error.pattern">Passwords do not match.</span>
                     </div>
@@ -24,7 +24,7 @@
                     <label for="confirmPassword" class="control-label col-md-5">Confirm Password</label>
                     <div class="col-md-7">
                         <input type="password" id="confirmPassword" name="confirmPassword" class="form-control input-sm" placeholder="Confirm Password"
-                               ng-model="vm.model.confirmPassword" ng-required="true" ng-pattern="vm.model.password" />
+                               ng-model="vm.model.confirmPassword" ng-required="true" ng-pattern="vm.model.newPassword" />
                         <span class="help-block" ng-if="changeForm.confirmPassword.$error.required">Confirm New Password is required.</span>
                         <span class="help-block" ng-if="changeForm.confirmPassword.$error.pattern">Passwords do not match.</span>
                     </div>
