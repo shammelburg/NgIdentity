@@ -15,8 +15,8 @@
         loginData: ILoginData;
         message: string;
 
-        static $inject = ['$scope', '$state', '$log', 'authService'];
-        constructor(private $scope, private $state: ng.ui.IStateService, private $log: ng.ILogService, private authService: app.services.IAuthService) {
+        static $inject = ['$scope', '$state', '$log', 'authService', '$window'];
+        constructor(private $scope, private $state: ng.ui.IStateService, private $log: ng.ILogService, private authService: app.services.IAuthService, private $window: ng.IWindowService) {
 
             this.message = '';
             this.loginData = {
@@ -33,7 +33,10 @@
                 return;
 
             this.authService.Login(this.loginData).then(() => {
-                this.$state.go('account');
+                // cause the page post back, sets auth header
+                this.$window.location.href = '/myaccount';
+                // cause weird auth error for certain controllers methods                
+                //this.$state.go('account');
             }).catch((reason: any) => {
                 this.message = reason.error_description;
             });
