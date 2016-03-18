@@ -52,6 +52,19 @@ namespace ng_identity_webapi.Controllers
 
         public ISecureDataFormat<AuthenticationTicket> AccessTokenFormat { get; private set; }
 
+        [HttpGet]
+        [AllowAnonymous]
+        // GET api/Account/Test
+        [Route("Test")]
+        public IHttpActionResult Test()
+        {
+            var obj = new { Name = "Sander", Id = 1 };
+
+            
+            //return BadRequest("Error!!!!!!!");
+            return Ok(obj);
+        }
+
 
         // GET api/Account/GetUserInfo
         [Route("GetUserInfo")]

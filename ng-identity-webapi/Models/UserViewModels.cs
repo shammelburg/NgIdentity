@@ -18,5 +18,6 @@ namespace ng_identity_webapi.Models
         public bool PhoneNumberConfirmed { get; set; }
         public string RoleName { get; set; }
         public bool TwoFactorEnabled { get; set; }
+        public bool LockoutEnabled { get; set; }
     }
 }

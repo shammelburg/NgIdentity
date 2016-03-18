@@ -39,6 +39,7 @@ namespace ng_identity_webapi.Repository
             user.PhoneNumber = vm.PhoneNumber;
             user.PhoneNumberConfirmed = vm.PhoneNumberConfirmed;
             user.TwoFactorEnabled = vm.TwoFactorEnabled;
+            user.LockoutEnabled = vm.LockoutEnabled;
 
             _userManager.Update(user);
         }

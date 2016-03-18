@@ -39,6 +39,13 @@ namespace ng_identity_webapi.Providers
                 return;
             }
 
+            // Check for user Lockout
+            if(user.LockoutEnabled)
+            {
+                context.SetError("lockout", "This account has been locked.");
+                return;
+            }
+
             ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(userManager,
                OAuthDefaults.AuthenticationType);
             ClaimsIdentity cookiesIdentity = await user.GenerateUserIdentityAsync(userManager,

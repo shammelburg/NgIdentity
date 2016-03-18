@@ -50,6 +50,15 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <div class="col-md-8 col-md-offset-4">
+                            <div class="checkbox">
+                                <label for="le">
+                                    <input id="le" type="checkbox" ng-model="vm.user.LockoutEnabled" /> Lockout Enabled
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label for="phone" class="col-md-4 control-label">Role Count</label>
                         <div class="col-md-8">
                             <span>{{vm.user.Roles.length}}</span>
