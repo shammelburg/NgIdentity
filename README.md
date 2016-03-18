@@ -22,5 +22,7 @@ Admin features,
 * Adding roles
 * Removing roles
 * Create User
+* Lockout User
 
-More to be added soon, hopefully
+TODO,
+* Delete User
